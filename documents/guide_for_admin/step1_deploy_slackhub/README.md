@@ -7,6 +7,7 @@ First, you should clone repository to your local environment and go to the proje
 To set up SlackHub, you need 
 
 - Go Runtime
+- Java & Maven
 - AWS CLI
 - AWS CDK
 
@@ -21,6 +22,31 @@ If you use macOS, you can install Go by using home brew.
 
 ```
 $ brew install go
+```
+
+</details>
+
+<details>
+<summary>If you are new of Java & Maven</summary>
+
+**Java**
+
+Please visit [OpenJDK](https://openjdk.java.net/) and download & install Java.
+
+If you use macOS, you can install Java by using home brew.
+
+```
+$ brew install openjdk
+```
+
+**Maven**
+
+Please visit [Apache Maven Project](https://maven.apache.org/download.cgi) and download & install Maven.
+
+If you use macOS, you can install Maven by using home brew.
+
+```
+$ brew install maven
 ```
 
 </details>
@@ -47,11 +73,6 @@ Please install cdk by npm command.
 $ npm install -g aws-cdk
 ```
 
-Then run the following command.
-
-```
-$ cdk bootstrap
-```
 </details>
 
 ## Set properties
