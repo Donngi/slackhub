@@ -80,8 +80,9 @@ Please add these 3 permissin scopes in Scopes section.
 2. `chat:write`
 3. `users:read`
 
-That's all of setup process! You can call SlackHub by sending @mention to SlackHub. 
-And also, your members will be able to resister their convinient tools to SlackHub.
+## Congratulations!
+That's all of setup process! You can call SlackHub by sending @mention. 
+And also, your members will be able to register their convinient tools to SlackHub.
 
 Let's try to mention to the SlackHub and select the tool `SlackHub - Catalog`. You can experience a fundamental modal view application :+1:
 

@@ -421,7 +421,7 @@ func TestIsUseModalFalse(t *testing.T) {
 	}
 }
 
-func TestResisterGolden(t *testing.T) {
+func TestRegisterGolden(t *testing.T) {
 	testTool := Tool{
 		ID:              "test",
 		DisplayName:     "test DisplayName",
@@ -440,7 +440,7 @@ func TestResisterGolden(t *testing.T) {
 	}
 }
 
-func TestResisterError(t *testing.T) {
+func TestRegisterError(t *testing.T) {
 	testTool := Tool{
 		ID:              "test",
 		DisplayName:     "test DisplayName",
@@ -466,7 +466,7 @@ func TestResisterError(t *testing.T) {
 	}
 }
 
-func TestResisterForceGolden(t *testing.T) {
+func TestRegisterForceGolden(t *testing.T) {
 	testTool := Tool{
 		ID:              "test",
 		DisplayName:     "test DisplayName",
@@ -485,7 +485,7 @@ func TestResisterForceGolden(t *testing.T) {
 	}
 }
 
-func TestResisterForceError(t *testing.T) {
+func TestRegisterForceError(t *testing.T) {
 	testTool := Tool{
 		ID:              "test",
 		DisplayName:     "test DisplayName",
