@@ -20,6 +20,7 @@ pr-prep:
 	cd "$(PWD)/examples/go" && go test
 	
 deploy: build
+	cd "$(PWD)/awscdk" && cdk bootstrap ${OPT}
 	cd "$(PWD)/awscdk" && cdk deploy ${OPT}
 
 tidy:
