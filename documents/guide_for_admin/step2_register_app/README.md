@@ -57,7 +57,7 @@ Please set these 2 setting.
 2. Enter the Request URL field. Set `SlackHubStack.SlackHubInteractiveEndpointXXXXXXXXXX` you got in the STEP1.
 
 ## Get bot user access token and register it to the SSM Parameter Store
-There are just a little more settings! Select `Setting - OAuth & Permissions` tab in the left sidebar.
+There are just a little more settings! Select `Features - OAuth & Permissions` tab in the left sidebar.
 
 ![OAuth & Permissions](https://github.com/nicoJN/slackhub/blob/images/guide_admin_5.png)
 
@@ -70,7 +70,7 @@ $ aws ssm put-parameter --name "slackhub-bot-user-auth-token" --type "SecureStri
 ```
 
 ## Add permission scopes to SlackHub
-Now, it's last process! Keep to stay `Setting - OAuth & Permissions` tab and scroll down.
+Now, it's last process! Keep to stay `Features - OAuth & Permissions` tab and scroll down.
 
 ![OAuth & Permissions - Scopes](https://github.com/nicoJN/slackhub/blob/images/guide_admin_6.png)
 
