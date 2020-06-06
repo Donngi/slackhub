@@ -36,7 +36,7 @@ SlackHub uses 2 functions of Slack.
 - Event subscriptions
 - Interactivity
 
-First, you should enable event subscription. Select `Setting - Event Subscriptions` tab in the left sidebar.
+First, you should enable event subscription. Select `Features - Event Subscriptions` tab in the left sidebar.
 
 ![Event Subscriptions](https://github.com/nicoJN/slackhub/blob/images/guide_admin_3.png)
 
@@ -47,7 +47,7 @@ Please set these 3 setting.
 3. Add `app_mention` event in the `Subscribe to bot events` section.
 
 ## Enable interactivity
-Now, it's turn of interactivity. Select `Settting - Interactivity & Shortcuts` tab in the left sidebar.
+Now, it's turn of interactivity. Select `Features - Interactivity & Shortcuts` tab in the left sidebar.
 
 ![Interactivity & Shortcuts](https://github.com/nicoJN/slackhub/blob/images/guide_admin_4.png)
 
