@@ -29,6 +29,9 @@ Almost all you have to do in this flow is **ONLY implementing tool's lambda whic
 - `Authentication`: SlackHub provides an authentication function. You can easily limit the users who are able to use each tool.
 - `Official Tools`: We initially provide you some tools like new tool register, editor, catalog and eraser. You can manage your tools by only ChatOps.
 
+### Architecture Overview
+![Architecture overview](https://github.com/nicoJN/slackhub/blob/images/architecture.png)
+
 ## Instration
 1. [SlackHub initial setup](https://github.com/nicoJN/slackhub/blob/master/documents/guide_for_admin) (Only once! By your team's representative.)
 2. [Create your tools!](https://github.com/nicoJN/slackhub/blob/master/documents/guide_for_developer)
