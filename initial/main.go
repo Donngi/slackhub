@@ -56,7 +56,7 @@ func handleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 			log.Printf("[ERROR] Failed to unmarchal json: %v", err)
 			return events.APIGatewayProxyResponse{Body: "[ERROR] Failed to unmarshal json", StatusCode: 401}, nil
 		}
-		return createResponseStatus200(""), nil
+		return createResponseStatus200(r.Challenge), nil
 
 	case slackevents.CallbackEvent:
 		// Case: CallbackEvent.
