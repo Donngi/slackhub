@@ -252,7 +252,8 @@ func handleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 // identifyRequestType returns the result of determining request type.
 func identifyRequestType(message slack.InteractionCallback) requestType {
 
-	if actions := message.ActionCallback.BlockActions; len(actions) == 1 {
+	// Check if the request comes from modal view or not.
+	if actions := message.ActionCallback.BlockActions; len(actions) == 1 && message.View.Hash == "" {
 		if actions[0].ActionID == string(requestSlackHubToolSelection) {
 			return requestSlackHubToolSelection
 		}
