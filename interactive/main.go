@@ -190,6 +190,14 @@ func handleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		return createResponseStatus200(""), nil
 
 	case requestSlackHubToolSelectionCancel:
+		// Delete the original message
+		if _, _, err := api.DeleteMessage(message.Channel.ID, message.Message.Timestamp); err != nil {
+			if _, _, err := api.PostMessage(message.Channel.ID, slack.MsgOptionText("[ERROR] Failed to delete the original message. Please see CloudWatch.", false)); err != nil {
+				log.Printf("[ERROR] Failed to send a message to Slack: %v", err)
+			}
+			log.Printf("[ERROR] Failed to delete the original message: %v", err)
+			return createResponseStatus200(""), nil
+		}
 		return createResponseStatus200(""), nil
 
 	case requestOthers:
