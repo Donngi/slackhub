@@ -1,6 +1,8 @@
 package tool
 
 import (
+	"sort"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/guregu/dynamo"
@@ -228,6 +230,12 @@ func SortTools(toolList []Tool) []Tool {
 			res = append(res, v)
 		}
 	}
+
+	// Sort
+	sort.Slice(res, func(i, j int) bool {
+		return res[i].DisplayName < res[j].DisplayName
+	})
+
 	res = append(res, register...)
 	res = append(res, editor...)
 	res = append(res, catalog...)

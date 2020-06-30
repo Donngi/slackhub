@@ -607,14 +607,30 @@ func TestSortTools(t *testing.T) {
 		ID: "eraser",
 	}
 
-	other := Tool{
-		ID: "other",
+	otherA := Tool{
+		ID:          "otherA",
+		DisplayName: "A",
 	}
 
-	raw := []Tool{other, editor, register, eraser, catalog}
+	otherB := Tool{
+		ID:          "otherB",
+		DisplayName: "B",
+	}
+
+	otherC := Tool{
+		ID:          "otherC",
+		DisplayName: "C",
+	}
+
+	otherD := Tool{
+		ID:          "otherD",
+		DisplayName: "D",
+	}
+
+	raw := []Tool{otherA, editor, otherD, register, otherC, eraser, otherB, catalog}
 
 	actual := SortTools(raw)
-	expect := []Tool{other, register, editor, catalog, eraser}
+	expect := []Tool{otherA, otherB, otherC, otherD, register, editor, catalog, eraser}
 
 	if reflect.DeepEqual(actual, expect) == false {
 		t.Fatalf("Failed test. expect is \n%v \nbut actual is \n%v", expect, actual)
