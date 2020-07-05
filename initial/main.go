@@ -8,7 +8,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/nicoJN/chatops-slackhub/auth"
+	"github.com/nicoJN/slackhub/auth"
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/nicoJN/chatops-slackhub/tool"
+	"github.com/nicoJN/slackhub/tool"
 )
 
 func TestCreateModal(t *testing.T) {

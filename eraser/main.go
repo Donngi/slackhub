@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/nicoJN/chatops-slackhub/auth"
-	"github.com/nicoJN/chatops-slackhub/tool"
+	"github.com/nicoJN/slackhub/auth"
+	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

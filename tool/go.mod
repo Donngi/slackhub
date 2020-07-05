@@ -1,4 +1,4 @@
-module github.com/nicoJN/chatops-slackhub/tool
+module github.com/nicoJN/slackhub/tool
 
 go 1.14
 

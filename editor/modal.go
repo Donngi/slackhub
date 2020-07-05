@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/nicoJN/chatops-slackhub/tool"
+	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

@@ -12,8 +12,8 @@ import (
 	awslambda "github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/nicoJN/chatops-slackhub/auth"
-	"github.com/nicoJN/chatops-slackhub/tool"
+	"github.com/nicoJN/slackhub/auth"
+	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

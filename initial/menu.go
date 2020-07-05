@@ -4,7 +4,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/guregu/dynamo"
-	"github.com/nicoJN/chatops-slackhub/tool"
+	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 
