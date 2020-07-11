@@ -169,6 +169,9 @@ func createEditorModal() (*slack.ModalViewRequest, error) {
 		return nil, err
 	}
 
+	// Sort tool list
+	toolList = tool.SortTools(toolList)
+
 	// Text Section
 	descText := slack.NewTextBlockObject("mrkdwn", ":wrench: Editor is a SlackHub's official tool for editing your tools. ", false, false)
 	descTextSection := slack.NewSectionBlock(descText, nil, nil)
