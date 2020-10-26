@@ -68,9 +68,9 @@ func createModal(tool *tool.Tool, userID string, responseURL string, channelID s
 	advContextBlock := slack.NewContextBlock(blockIDAdvanced, []slack.MixedElement{advContextText}...)
 
 	optNormalText := slack.NewTextBlockObject("plain_text", "Normal", false, false)
-	optNormalObj := slack.NewOptionBlockObject("Normal", optNormalText)
+	optNormalObj := slack.NewOptionBlockObject("Normal", optNormalText, nil)
 	optAdvancedText := slack.NewTextBlockObject("plain_text", "Advanced", false, false)
-	optAdvancedObj := slack.NewOptionBlockObject("Advanced", optAdvancedText)
+	optAdvancedObj := slack.NewOptionBlockObject("Advanced", optAdvancedText, nil)
 	optObjs := []*slack.OptionBlockObject{
 		optNormalObj,
 		optAdvancedObj,

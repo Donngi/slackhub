@@ -115,9 +115,9 @@ func createRegisterModal() *slack.ModalViewRequest {
 	advContextBlock := slack.NewContextBlock(blockIDRegisterAdvanced, []slack.MixedElement{advContextText}...)
 
 	optNormalText := slack.NewTextBlockObject("plain_text", "Normal", false, false)
-	optNormalObj := slack.NewOptionBlockObject("Normal", optNormalText)
+	optNormalObj := slack.NewOptionBlockObject("Normal", optNormalText, nil)
 	optAdvancedText := slack.NewTextBlockObject("plain_text", "Advanced", false, false)
-	optAdvancedObj := slack.NewOptionBlockObject("Advanced", optAdvancedText)
+	optAdvancedObj := slack.NewOptionBlockObject("Advanced", optAdvancedText, nil)
 	optObjs := []*slack.OptionBlockObject{
 		optNormalObj,
 		optAdvancedObj,
@@ -188,7 +188,7 @@ func createEditorModal() (*slack.ModalViewRequest, error) {
 		}
 
 		optText := slack.NewTextBlockObject("plain_text", tool.DisplayName, false, false)
-		optObj := slack.NewOptionBlockObject(tool.ID, optText)
+		optObj := slack.NewOptionBlockObject(tool.ID, optText, nil)
 		optObjs = append(optObjs, optObj)
 	}
 
@@ -250,12 +250,12 @@ func createCatalogModal() (*slack.ModalViewRequest, error) {
 	// Static select
 	var optObjs []*slack.OptionBlockObject
 	allText := slack.NewTextBlockObject("plain_text", "Please show all tools!", false, false)
-	allObj := slack.NewOptionBlockObject("all", allText)
+	allObj := slack.NewOptionBlockObject("all", allText, nil)
 	optObjs = append(optObjs, allObj)
 
 	for _, tool := range toolList {
 		optText := slack.NewTextBlockObject("plain_text", tool.DisplayName, false, false)
-		optObj := slack.NewOptionBlockObject(tool.ID, optText)
+		optObj := slack.NewOptionBlockObject(tool.ID, optText, nil)
 		optObjs = append(optObjs, optObj)
 	}
 
@@ -314,7 +314,7 @@ func createEraserModal() (*slack.ModalViewRequest, error) {
 		}
 
 		optText := slack.NewTextBlockObject("plain_text", tool.DisplayName, false, false)
-		optObj := slack.NewOptionBlockObject(tool.ID, optText)
+		optObj := slack.NewOptionBlockObject(tool.ID, optText, nil)
 		optObjs = append(optObjs, optObj)
 	}
 
