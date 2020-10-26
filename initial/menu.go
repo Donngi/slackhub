@@ -44,7 +44,7 @@ func createSelectElement() (*slack.SelectBlockElement, error) {
 	var optObjs []*slack.OptionBlockObject
 	for _, tool := range toolList {
 		optText := slack.NewTextBlockObject("plain_text", tool.DisplayName, false, false)
-		optObj := slack.NewOptionBlockObject(tool.ID, optText)
+		optObj := slack.NewOptionBlockObject(tool.ID, optText, nil)
 		optObjs = append(optObjs, optObj)
 	}
 
