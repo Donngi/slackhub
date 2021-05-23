@@ -1,8 +1,50 @@
 data "aws_region" "current" {}
 
+# ----------------------------------------------------------
+# SlackHub main
+# ----------------------------------------------------------
+
 module "dymanodb_tools_table" {
   source = "../../module/dynamodb_tools_table"
 }
+
+module "api_gateway" {
+  source                        = "../../module/api_gateway"
+  lambda_initial_invoke_arn     = module.lambda_initial.lambda_invoke_arn
+  lambda_interactive_invoke_arn = module.lambda_interactive.lambda_invoke_arn
+}
+
+module "lambda_initial" {
+  source = "../../module/lambda_slackhub_main"
+
+  function_name                      = "SlackHubInitial"
+  source_code_dir                    = "../../../initial/bin"
+  source_code_file                   = "main"
+  region                             = data.aws_region.current.name
+  param_key_bot_user_auth_token      = local.param_key_bot_user_auth_token
+  param_key_signing_secret           = local.param_key_signing_secret
+  dynamodb_table_name                = module.dymanodb_tools_table.dynamodb_table_name
+  dynamodb_table_arn                 = module.dymanodb_tools_table.dynamodb_table_arn
+  api_gateway_slackhub_execution_arn = module.api_gateway.api_gateway_slackhub_execution_arn
+}
+
+module "lambda_interactive" {
+  source = "../../module/lambda_slackhub_main"
+
+  function_name                      = "SlackHubInteractive"
+  source_code_dir                    = "../../../interactive/bin"
+  source_code_file                   = "main"
+  region                             = data.aws_region.current.name
+  param_key_bot_user_auth_token      = local.param_key_bot_user_auth_token
+  param_key_signing_secret           = local.param_key_signing_secret
+  dynamodb_table_name                = module.dymanodb_tools_table.dynamodb_table_name
+  dynamodb_table_arn                 = module.dymanodb_tools_table.dynamodb_table_arn
+  api_gateway_slackhub_execution_arn = module.api_gateway.api_gateway_slackhub_execution_arn
+}
+
+# ----------------------------------------------------------
+# Official tools
+# ----------------------------------------------------------
 
 module "lambda_register" {
   source = "../../module/lambda_official_tool"
@@ -48,32 +90,6 @@ module "lambda_eraser" {
 
   function_name                 = "SlackHubEraser"
   source_code_dir               = "../../../eraser/bin"
-  source_code_file              = "main"
-  region                        = data.aws_region.current.name
-  param_key_bot_user_auth_token = local.param_key_bot_user_auth_token
-  param_key_signing_secret      = local.param_key_signing_secret
-  dynamodb_table_name           = module.dymanodb_tools_table.dynamodb_table_name
-  dynamodb_table_arn            = module.dymanodb_tools_table.dynamodb_table_arn
-}
-
-module "lambda_initial" {
-  source = "../../module/lambda_official_tool"
-
-  function_name                 = "SlackHubInitial"
-  source_code_dir               = "../../../initial/bin"
-  source_code_file              = "main"
-  region                        = data.aws_region.current.name
-  param_key_bot_user_auth_token = local.param_key_bot_user_auth_token
-  param_key_signing_secret      = local.param_key_signing_secret
-  dynamodb_table_name           = module.dymanodb_tools_table.dynamodb_table_name
-  dynamodb_table_arn            = module.dymanodb_tools_table.dynamodb_table_arn
-}
-
-module "lambda_interactive" {
-  source = "../../module/lambda_official_tool"
-
-  function_name                 = "SlackHubInteractive"
-  source_code_dir               = "../../../interactive/bin"
   source_code_file              = "main"
   region                        = data.aws_region.current.name
   param_key_bot_user_auth_token = local.param_key_bot_user_auth_token
