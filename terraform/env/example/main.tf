@@ -5,7 +5,11 @@ data "aws_region" "current" {}
 # ----------------------------------------------------------
 
 module "dymanodb_tools_table" {
-  source = "../../module/dynamodb_tools_table"
+  source              = "../../module/dynamodb_tools_table"
+  lambda_register_arn = module.lambda_register.lambda_arn
+  lambda_editor_arn   = module.lambda_editor.lambda_arn
+  lambda_catalog_arn  = module.lambda_catalog.lambda_arn
+  lambda_eraser_arn   = module.lambda_eraser.lambda_arn
 }
 
 module "api_gateway" {
