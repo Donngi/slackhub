@@ -8,7 +8,6 @@ build:
 	cd "$(PWD)/catalog" && make build
 	cd "$(PWD)/eraser" && make build
 	cd "$(PWD)/examples/go" && make build
-	cd "$(PWD)/awscdk" && mvn package
 
 pr-prep:
 	cd "$(PWD)/initial" && go test
@@ -20,8 +19,7 @@ pr-prep:
 	cd "$(PWD)/examples/go" && go test
 	
 deploy: build
-	cd "$(PWD)/awscdk" && cdk bootstrap ${OPT}
-	cd "$(PWD)/awscdk" && cdk deploy ${OPT}
+	cd "$(PWD)/terraform/env/example" && terraform init && terraform apply
 
 tidy:
 	cd "$(PWD)/initial" && make tidy
