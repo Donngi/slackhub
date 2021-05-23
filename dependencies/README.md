@@ -4,7 +4,6 @@ This software uses following repositories.
 I'd like to take this opportunity to thank you for the authors and contributors.
 
 - [slack-go/slack](https://github.com/slack-go/slack)
-- [aws/aws-cdk](https://github.com/aws/aws-cdk)
 - [guregu/dynamo](https://github.com/guregu/dynamo)
 - [aws/aws-lambda-go](https://github.com/aws/aws-lambda-go)
 - [aws/aws-sdk-go](https://github.com/aws/aws-sdk-go)
