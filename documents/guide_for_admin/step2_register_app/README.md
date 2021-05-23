@@ -43,7 +43,7 @@ First, you should enable event subscription. Select `Features - Event Subscripti
 Please set these 3 setting.
 
 1. Turn the toggle to ON
-2. Enter the Request URL field. Set `SlackHubStack.SlackHubInitialEndpointXXXXXXXXXX` you got in the STEP1.
+2. Enter the Request URL field. Set endpoint url you got in the STEP1 + `/initial` (like `https://xxxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/initial`).
 3. Add `app_mention` event in the `Subscribe to bot events` section.
 
 ## Enable interactivity
@@ -54,7 +54,7 @@ Now, it's turn of interactivity. Select `Features - Interactivity & Shortcuts` t
 Please set these 2 setting.
 
 1. Turn the toggle to ON
-2. Enter the Request URL field. Set `SlackHubStack.SlackHubInteractiveEndpointXXXXXXXXXX` you got in the STEP1.
+2. Enter the Request URL field. Set endpoint url you got in the STEP1 + `/interactive` (like `https://xxxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/interactive`).
 
 ## Get bot user access token and register it to the SSM Parameter Store
 There are just a little more settings! Select `Features - OAuth & Permissions` tab in the left sidebar.
