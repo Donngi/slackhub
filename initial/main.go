@@ -14,15 +14,10 @@ import (
 )
 
 var (
-	region      = os.Getenv("REGION")
-	tokenKey    = os.Getenv("PARAMKEY_BOT_USER_AUTH_TOKEN")
-	secretKey   = os.Getenv("PARAMKEY_SIGNING_SECRET")
-	dynamodb    = os.Getenv("DYNAMO_DB_NAME")
-	registerArn = os.Getenv("REGISTER_TOOL_ARN")
-	editorArn   = os.Getenv("EDITOR_TOOL_ARN")
-	catalogArn  = os.Getenv("CATALOG_TOOL_ARN")
-	eraserArn   = os.Getenv("ERASER_TOOL_ARN")
-	sampleGoArn = os.Getenv("SAMPLE_TOOL_GO_ARN")
+	region    = os.Getenv("REGION")
+	tokenKey  = os.Getenv("PARAMKEY_BOT_USER_AUTH_TOKEN")
+	secretKey = os.Getenv("PARAMKEY_SIGNING_SECRET")
+	dynamodb  = os.Getenv("DYNAMO_DB_NAME")
 )
 
 func main() {
