@@ -1,4 +1,4 @@
-module github.com/nicoJN/slackhub/tool
+module github.com/Jimon-s/slackhub/tool
 
 go 1.14
 

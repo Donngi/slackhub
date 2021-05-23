@@ -8,12 +8,12 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Jimon-s/slackhub/auth"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/aws/aws-lambda-go/events"
 	awslambda "github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/nicoJN/slackhub/auth"
-	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

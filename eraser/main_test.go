@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/nicoJN/slackhub/tool"
+	"github.com/Jimon-s/slackhub/tool"
 )
 
 func TestValidateConfirmation(t *testing.T) {

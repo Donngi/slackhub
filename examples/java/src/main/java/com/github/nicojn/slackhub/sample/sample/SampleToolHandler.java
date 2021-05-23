@@ -1,4 +1,4 @@
-package com.github.nicojn.slackhub.sample.sample;
+package com.github.Jimon-s.slackhub.sample.sample;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

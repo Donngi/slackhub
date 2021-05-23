@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/guregu/dynamo"
-	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

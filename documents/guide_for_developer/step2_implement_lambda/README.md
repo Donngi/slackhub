@@ -4,7 +4,7 @@ In this step, you'll implement your tool's lambda.
 SlackHub is designed to work regardless of the language of the latter program. **You can use any language you love!**
 
 ## JSON sent from SlackHub to your lambda
-![Role of SlackHub](https://github.com/nicoJN/slackhub/blob/images/role.png)
+![Role of SlackHub](https://github.com/Jimon-s/slackhub/blob/images/role.png)
 
 Once users submit a modal view, SlackHub authorize the message and pass the input params to your lambda.
 
@@ -54,4 +54,4 @@ When you send, please use the `response_url` descrebed above.
 ## Implement your tool
 That ’s all for the explanation. Let's implement your tool's lambda and deploy to your AWS account!
 
-We provide you some example codes in this repository. Please see [the sample directly](https://github.com/nicoJN/slackhub/blob/master/examples).
+We provide you some example codes in this repository. Please see [the sample directly](https://github.com/Jimon-s/slackhub/blob/master/examples).

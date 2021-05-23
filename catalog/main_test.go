@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/nicoJN/slackhub/tool"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

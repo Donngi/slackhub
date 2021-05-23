@@ -5,7 +5,7 @@ Let's register your tool!
 ## Register
 First, you should call SlackHub in your slack channel and select the tool `SlackHub - Register`.
 
-![SlackHub - Register](https://github.com/nicoJN/slackhub/blob/images/guide_developer_3.png)
+![SlackHub - Register](https://github.com/Jimon-s/slackhub/blob/images/guide_developer_3.png)
 
 You can register your tool by only using this tool. Please enter the each field.
 

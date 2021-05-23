@@ -1,4 +1,4 @@
-module github.com/nicoJN/slackhub/initial
+module github.com/Jimon-s/slackhub/initial
 
 go 1.14
 
@@ -8,12 +8,12 @@ require (
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
 	github.com/guregu/dynamo v1.9.1
-	github.com/nicoJN/slackhub/auth v0.0.0
-	github.com/nicoJN/slackhub/tool v0.0.0
+	github.com/Jimon-s/slackhub/auth v0.0.0
+	github.com/Jimon-s/slackhub/tool v0.0.0
 	github.com/slack-go/slack v0.7.2
 	golang.org/x/net v0.0.0-20201026091529-146b70c837a4 // indirect
 )
 
-replace github.com/nicoJN/slackhub/auth => ../auth
+replace github.com/Jimon-s/slackhub/auth => ../auth
 
-replace github.com/nicoJN/slackhub/tool => ../tool
+replace github.com/Jimon-s/slackhub/tool => ../tool
