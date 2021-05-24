@@ -12,6 +12,8 @@ resource "aws_lambda_function" "slackhub" {
 
   runtime = "go1.x"
 
+  source_code_hash = data.archive_file.zip.output_base64sha256
+
   environment {
     variables = {
       REGION                       = var.region
