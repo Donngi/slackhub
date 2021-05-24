@@ -6,10 +6,6 @@ variable "source_code_file" {
   type = string
 }
 
-variable "function_name" {
-  type = string
-}
-
 variable "region" {
   type = string
 }

@@ -4,10 +4,10 @@ data "archive_file" "zip" {
   output_path = "${var.source_code_dir}/upload_terraform.zip"
 }
 
-resource "aws_lambda_function" "slackhub" {
+resource "aws_lambda_function" "initial" {
   filename      = "${var.source_code_dir}/upload_terraform.zip"
-  function_name = var.function_name
-  role          = aws_iam_role.slackhub_lambda.arn
+  function_name = "SlackHubInitial"
+  role          = aws_iam_role.initial.arn
   handler       = "main"
 
   runtime = "go1.x"
@@ -24,10 +24,10 @@ resource "aws_lambda_function" "slackhub" {
   }
 }
 
-resource "aws_lambda_permission" "slackhub" {
+resource "aws_lambda_permission" "initial" {
   statement_id  = "AllowAPIGatewaySlackHub"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.slackhub.arn
+  function_name = aws_lambda_function.initial.arn
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${var.api_gateway_slackhub_execution_arn}/*/*"
 }

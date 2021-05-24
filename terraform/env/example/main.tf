@@ -19,9 +19,8 @@ module "api_gateway" {
 }
 
 module "lambda_initial" {
-  source = "../../module/lambda_slackhub_main"
+  source = "../../module/lambda_slackhub_initial"
 
-  function_name                      = "SlackHubInitial"
   source_code_dir                    = "../../../initial/bin"
   source_code_file                   = "main"
   region                             = data.aws_region.current.name
@@ -33,9 +32,8 @@ module "lambda_initial" {
 }
 
 module "lambda_interactive" {
-  source = "../../module/lambda_slackhub_main"
+  source = "../../module/lambda_slackhub_interactive"
 
-  function_name                      = "SlackHubInteractive"
   source_code_dir                    = "../../../interactive/bin"
   source_code_file                   = "main"
   region                             = data.aws_region.current.name
