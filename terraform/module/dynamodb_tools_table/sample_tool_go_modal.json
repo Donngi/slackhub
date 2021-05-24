@@ -1,0 +1,58 @@
+{
+    "type": "modal",
+    "title": {
+        "type": "plain_text",
+        "text": "Sample Tool",
+        "emoji": true
+    },
+    "submit": {
+        "type": "plain_text",
+        "text": "Submit",
+        "emoji": true
+    },
+    "close": {
+        "type": "plain_text",
+        "text": "Cancel",
+        "emoji": true
+    },
+    "blocks": [
+        {
+            "type": "section",
+            "text": {
+                "type": "plain_text",
+                "text": ":wave: Hi! This is a sample tool written in Go.",
+                "emoji": true
+            }
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "block_id": "lunch_block",
+            "type": "input",
+            "element": {
+                "action_id": "lunch_action",
+                "type": "plain_text_input"
+            },
+            "label": {
+                "type": "plain_text",
+                "text": "What is your favorite lunch?",
+                "emoji": true
+            }
+        },
+        {
+            "block_id": "detail_block",
+            "type": "input",
+            "label": {
+                "type": "plain_text",
+                "text": "Tell us more!",
+                "emoji": true
+            },
+            "element": {
+                "action_id": "detail_action",
+                "type": "plain_text_input",
+                "multiline": true
+            }
+        }
+    ]
+}

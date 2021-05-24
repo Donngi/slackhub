@@ -13,3 +13,7 @@ variable "lambda_catalog_arn" {
 variable "lambda_eraser_arn" {
   type = string
 }
+
+variable "lambda_sample_go_arn" {
+  type = string
+}

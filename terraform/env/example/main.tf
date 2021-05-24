@@ -5,11 +5,12 @@ data "aws_region" "current" {}
 # ----------------------------------------------------------
 
 module "dymanodb_tools_table" {
-  source              = "../../module/dynamodb_tools_table"
-  lambda_register_arn = module.lambda_register.lambda_arn
-  lambda_editor_arn   = module.lambda_editor.lambda_arn
-  lambda_catalog_arn  = module.lambda_catalog.lambda_arn
-  lambda_eraser_arn   = module.lambda_eraser.lambda_arn
+  source               = "../../module/dynamodb_tools_table"
+  lambda_register_arn  = module.lambda_register.lambda_arn
+  lambda_editor_arn    = module.lambda_editor.lambda_arn
+  lambda_catalog_arn   = module.lambda_catalog.lambda_arn
+  lambda_eraser_arn    = module.lambda_eraser.lambda_arn
+  lambda_sample_go_arn = module.lambda_sample_go.lambda_arn
 }
 
 module "api_gateway" {
@@ -98,4 +99,16 @@ module "lambda_eraser" {
   param_key_signing_secret      = local.param_key_signing_secret
   dynamodb_table_name           = module.dymanodb_tools_table.dynamodb_table_name
   dynamodb_table_arn            = module.dymanodb_tools_table.dynamodb_table_arn
+}
+
+# ----------------------------------------------------------
+# Sample tool
+# ----------------------------------------------------------
+
+module "lambda_sample_go" {
+  source = "../../module/lambda_sample_tool"
+
+  function_name    = "SampleToolGo"
+  source_code_dir  = "../../../examples/go/bin"
+  source_code_file = "main"
 }
