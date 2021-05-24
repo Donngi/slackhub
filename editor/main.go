@@ -6,10 +6,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/Jimon-s/slackhub/auth"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/nicoJN/slackhub/auth"
-	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

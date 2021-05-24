@@ -20,7 +20,7 @@ The biggest difference between normal and advanced mode is how to invoke tool's 
 
 You can see the difference graphically in the page below.
 
-[SlackHub sequence](https://github.com/nicoJN/slackhub/blob/master/documents/slackhub_architecture)
+[SlackHub sequence](https://github.com/Jimon-s/slackhub/blob/master/documents/slackhub_architecture)
 
 In advanced mode, SlackHub acts as just a proxy. You must implement all request/response sequence by themselves.
 

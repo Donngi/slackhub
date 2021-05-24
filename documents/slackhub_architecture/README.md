@@ -3,7 +3,7 @@
 In this section, you can see SlackHub's architecture.
 
 ## Architecture overview
-![Architecture overview](https://github.com/nicoJN/slackhub/blob/images/architecture.png)
+![Architecture overview](https://github.com/Jimon-s/slackhub/blob/images/architecture.png)
 
 SlackHub has two main streams in its architecture.
 One is `Initial` stream which sends a tool list menu to slack. Another is `Interactive` stream which sends a modal view to slack and invokes tool's lambda.
@@ -11,7 +11,7 @@ One is `Initial` stream which sends a tool list menu to slack. Another is `Inter
 ## Sequence (Normal Mode)
 If tool developers select `Boot Mode = Normal` (Default), the lifecycle of the tool is below.
 
-![Sequence Normal Mode](https://github.com/nicoJN/slackhub/blob/images/sequence_normal_mode.png)
+![Sequence Normal Mode](https://github.com/Jimon-s/slackhub/blob/images/sequence_normal_mode.png)
 
 In Normal mode, SlackHub handles almost all events instead of you. First, when users send @mention, SlackHub receives the message and do
 
@@ -42,7 +42,7 @@ After tool's lambda receive the JSON from SlackHub, tools are eble to do anythin
 ## Sequence (Advanced Mode)
 If tool developers select `Boot Mode = Advanced`, the lifecycle of the tool is below. The difference between normal mode and advance mode is that developers are able to controll all lifecycle events.
 
-![Sequence Normal Mode](https://github.com/nicoJN/slackhub/blob/images/sequence_advanced_mode.png)
+![Sequence Normal Mode](https://github.com/Jimon-s/slackhub/blob/images/sequence_advanced_mode.png)
 
 It is same as normal mode until users submit a modal view inputs. After receiving a submission event, SlackHub do
 

@@ -7,12 +7,12 @@ To make a modal view more easily, slack team officially provides an GUI tool :ta
 
 It's a powerful and easy to use. Umm, that's why Slack is loved by everyone :+1:
 
-(If you don't need to use a modal view, you can skip this step and see [Step2](https://github.com/nicoJN/slackhub/blob/master/documents/guide_for_developer/step2_implement_lambda))
+(If you don't need to use a modal view, you can skip this step and see [Step2](https://github.com/Jimon-s/slackhub/blob/master/documents/guide_for_developer/step2_implement_lambda))
 
 ## Create basis of a modal view
 First, you should visit [Block Kit Builder site](https://api.slack.com/tools/block-kit-builder) and make a basis of a modal view.
 
-![Block Kit Builder](https://github.com/nicoJN/slackhub/blob/images/guide_developer_1.png)
+![Block Kit Builder](https://github.com/Jimon-s/slackhub/blob/images/guide_developer_1.png)
 
 You can locate blocks by GUI and json code will be automatically created. 
 
@@ -25,7 +25,7 @@ In order to avoid such a situation, slack provides us functions of **block_id** 
 
 Of course, you don't have to label all blocks. You should insert block_id and action_id **only to blocks which you will use in your tool's implemantation**.
 
-![Which is block](https://github.com/nicoJN/slackhub/blob/images/guide_developer_2.png)
+![Which is block](https://github.com/Jimon-s/slackhub/blob/images/guide_developer_2.png)
 
 NOTE: In the modal view, block is a unit of a component. It's correspond to the item which you can select from a left sidebar. You should add block_id to them. In addition, you should also add action_id to the element in the block.
 

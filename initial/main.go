@@ -2,27 +2,23 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"log"
 	"os"
 
+	"github.com/Jimon-s/slackhub/auth"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/nicoJN/slackhub/auth"
 	"github.com/slack-go/slack"
 	"github.com/slack-go/slack/slackevents"
 )
 
 var (
-	region      = os.Getenv("REGION")
-	tokenKey    = os.Getenv("PARAMKEY_BOT_USER_AUTH_TOKEN")
-	secretKey   = os.Getenv("PARAMKEY_SIGNING_SECRET")
-	dynamodb    = os.Getenv("DYNAMO_DB_NAME")
-	registerArn = os.Getenv("REGISTER_TOOL_ARN")
-	editorArn   = os.Getenv("EDITOR_TOOL_ARN")
-	catalogArn  = os.Getenv("CATALOG_TOOL_ARN")
-	eraserArn   = os.Getenv("ERASER_TOOL_ARN")
-	sampleGoArn = os.Getenv("SAMPLE_TOOL_GO_ARN")
+	region    = os.Getenv("REGION")
+	tokenKey  = os.Getenv("PARAMKEY_BOT_USER_AUTH_TOKEN")
+	secretKey = os.Getenv("PARAMKEY_SIGNING_SECRET")
+	dynamodb  = os.Getenv("DYNAMO_DB_NAME")
 )
 
 func main() {
@@ -34,8 +30,19 @@ func handleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	// Slack offers us to send 200 response if we can receive message and send error messages in other way.
 	// For more info, https://api.slack.com/interactivity/handling#responses
 
+	// Decode request body
+	body := request.Body
+	if request.IsBase64Encoded {
+		b, err := base64.StdEncoding.DecodeString(body)
+		if err != nil {
+			log.Printf("[ERROR] Failed to decode request body: %v", err)
+			return createResponseStatus200(""), nil
+		}
+		body = string(b)
+	}
+
 	// Slack authentication.
-	if err := auth.New(region).Authorize(request, secretKey); err != nil {
+	if err := auth.New(region).Authorize(body, request.Headers, secretKey); err != nil {
 		log.Printf("[ERROR] Failed to verify SigningSecret: %v", err)
 		return createResponseStatus200(""), nil
 	}

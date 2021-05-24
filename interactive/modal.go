@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/nicoJN/slackhub/tool"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 
@@ -105,13 +105,13 @@ func createRegisterModal() *slack.ModalViewRequest {
 	modalJSONInputBlock.Optional = true
 	modalJSONInputBlock.Hint = slack.NewTextBlockObject("plain_text", "Optional: Source of a modal view appearance. If you don't register any modal, SlackHub won't send modal to Slack and will simply pass the request to your tool's lambda.", false, false)
 
-	referenceText := slack.NewTextBlockObject("mrkdwn", "You can make json with *Official GUI Tool*. For more info, see <https://github.com/nicoJN/slackhub/blob/master/documents/guide_for_developer/step1_create_modal_view|SlackHub user guide>.", false, false)
+	referenceText := slack.NewTextBlockObject("mrkdwn", "You can make json with *Official GUI Tool*. For more info, see <https://github.com/Jimon-s/slackhub/blob/master/documents/guide_for_developer/step1_create_modal_view|SlackHub user guide>.", false, false)
 	referenceContextBlock := slack.NewContextBlock(blockIDRegisterReference, []slack.MixedElement{referenceText}...)
 
 	advText := slack.NewTextBlockObject("mrkdwn", ":zap: *ADVANCED SETTING*", false, false)
 	advTextSection := slack.NewSectionBlock(advText, nil, nil)
 
-	advContextText := slack.NewTextBlockObject("mrkdwn", "If you learn Slack's modal lifecycle sequence, you can create more flexible tools. By changing this param, you can fully control your event. For more info, see <https://github.com/nicoJN/slackhub/blob/master/documents/guide_for_developer/stepx_use_advanced_mode|SlackHub user advanced guide>.", false, false)
+	advContextText := slack.NewTextBlockObject("mrkdwn", "If you learn Slack's modal lifecycle sequence, you can create more flexible tools. By changing this param, you can fully control your event. For more info, see <https://github.com/Jimon-s/slackhub/blob/master/documents/guide_for_developer/stepx_use_advanced_mode|SlackHub user advanced guide>.", false, false)
 	advContextBlock := slack.NewContextBlock(blockIDRegisterAdvanced, []slack.MixedElement{advContextText}...)
 
 	optNormalText := slack.NewTextBlockObject("plain_text", "Normal", false, false)

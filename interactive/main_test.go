@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 

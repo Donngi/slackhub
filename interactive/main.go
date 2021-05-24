@@ -2,18 +2,19 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"log"
 	"net/url"
 	"os"
 	"strings"
 
+	"github.com/Jimon-s/slackhub/auth"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/aws/aws-lambda-go/events"
 	awslambda "github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/nicoJN/slackhub/auth"
-	"github.com/nicoJN/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 
@@ -33,14 +34,25 @@ func handleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	// Slack offers us to send 200 response if we can receive message and send error messages in other way.
 	// For more info, https://api.slack.com/interactivity/handling#responses
 
+	// Decode request body
+	body := request.Body
+	if request.IsBase64Encoded {
+		b, err := base64.StdEncoding.DecodeString(body)
+		if err != nil {
+			log.Printf("[ERROR] Failed to decode request body: %v", err)
+			return createResponseStatus200(""), nil
+		}
+		body = string(b)
+	}
+
 	// Slack authentication.
-	if err := auth.New(region).Authorize(request, secretKey); err != nil {
+	if err := auth.New(region).Authorize(body, request.Headers, secretKey); err != nil {
 		log.Printf("[ERROR] Failed to verify SigningSecret: %v", err)
 		return createResponseStatus200(""), nil
 	}
 
 	// Parse request
-	payload, err := url.QueryUnescape(request.Body)
+	payload, err := url.QueryUnescape(body)
 	if err != nil {
 		log.Printf("[ERROR] Failed to unescape: %v", err)
 		return createResponseStatus200(""), nil

@@ -6,7 +6,6 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ssm/ssmiface"
 
-	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/ssm"
 	"github.com/slack-go/slack"
@@ -41,14 +40,14 @@ func (a *Auth) getParam(key string) (string, error) {
 }
 
 // Authorize conducts a series of slack authentication.
-func (a *Auth) Authorize(request events.APIGatewayProxyRequest, secretKey string) error {
+func (a *Auth) Authorize(body string, header map[string]string, secretKey string) error {
 
 	sc, err := a.getParam(secretKey)
 	if err != nil {
 		return err
 	}
 
-	if err := verify(request, sc); err != nil {
+	if err := verify(body, header, sc); err != nil {
 		return err
 	}
 
@@ -56,14 +55,14 @@ func (a *Auth) Authorize(request events.APIGatewayProxyRequest, secretKey string
 }
 
 // verify returns the result of slack signing secret verification.
-func verify(request events.APIGatewayProxyRequest, sc string) error {
-	body := request.Body
-	header := http.Header{}
-	for k, v := range request.Headers {
-		header.Set(k, v)
+func verify(body string, header map[string]string, sc string) error {
+
+	convHeader := http.Header{}
+	for k, v := range header {
+		convHeader.Set(k, v)
 	}
 
-	sv, err := slack.NewSecretsVerifier(header, sc)
+	sv, err := slack.NewSecretsVerifier(convHeader, sc)
 	if err != nil {
 		return err
 	}

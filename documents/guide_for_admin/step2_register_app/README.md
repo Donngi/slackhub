@@ -9,13 +9,13 @@ If you don't use SlackHub, all of your team members must do this process every t
 ## Create an app
 First, open [https://api.slack.com/apps](https://api.slack.com/apps) and click the "Create New App" button.
 
-![Create New App](https://github.com/nicoJN/slackhub/blob/images/guide_admin_1.png)
+![Create New App](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_1.png)
 
 Then enter the App name (SlackHub) and select Workspace.
 
 Next, you should set your app an icon. Scroll down and click to upload.
 
-![Set an icon](https://github.com/nicoJN/slackhub/blob/images/guide_admin_2.png)
+![Set an icon](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_2.png)
 
 I provide you an icon of SlackHub. See project root directory and get `logo_512.png`.
 
@@ -38,28 +38,28 @@ SlackHub uses 2 functions of Slack.
 
 First, you should enable event subscription. Select `Features - Event Subscriptions` tab in the left sidebar.
 
-![Event Subscriptions](https://github.com/nicoJN/slackhub/blob/images/guide_admin_3.png)
+![Event Subscriptions](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_3.png)
 
 Please set these 3 setting.
 
 1. Turn the toggle to ON
-2. Enter the Request URL field. Set `SlackHubStack.SlackHubInitialEndpointXXXXXXXXXX` you got in the STEP1.
+2. Enter the Request URL field. Set endpoint url you got in the STEP1 + `/initial` (like `https://xxxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/initial`).
 3. Add `app_mention` event in the `Subscribe to bot events` section.
 
 ## Enable interactivity
 Now, it's turn of interactivity. Select `Features - Interactivity & Shortcuts` tab in the left sidebar.
 
-![Interactivity & Shortcuts](https://github.com/nicoJN/slackhub/blob/images/guide_admin_4.png)
+![Interactivity & Shortcuts](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_4.png)
 
 Please set these 2 setting.
 
 1. Turn the toggle to ON
-2. Enter the Request URL field. Set `SlackHubStack.SlackHubInteractiveEndpointXXXXXXXXXX` you got in the STEP1.
+2. Enter the Request URL field. Set endpoint url you got in the STEP1 + `/interactive` (like `https://xxxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/interactive`).
 
 ## Get bot user access token and register it to the SSM Parameter Store
 There are just a little more settings! Select `Features - OAuth & Permissions` tab in the left sidebar.
 
-![OAuth & Permissions](https://github.com/nicoJN/slackhub/blob/images/guide_admin_5.png)
+![OAuth & Permissions](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_5.png)
 
 Please click `Install App to Workspace` button. 
 
@@ -72,7 +72,7 @@ $ aws ssm put-parameter --name "slackhub-bot-user-auth-token" --type "SecureStri
 ## Add permission scopes to SlackHub
 Now, it's last process! Keep to stay `Features - OAuth & Permissions` tab and scroll down.
 
-![OAuth & Permissions - Scopes](https://github.com/nicoJN/slackhub/blob/images/guide_admin_6.png)
+![OAuth & Permissions - Scopes](https://github.com/Jimon-s/slackhub/blob/images/guide_admin_6.png)
 
 Please add these 3 permissin scopes in Scopes section.
 

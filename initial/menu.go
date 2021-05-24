@@ -1,10 +1,7 @@
 package main
 
 import (
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/guregu/dynamo"
-	"github.com/nicoJN/slackhub/tool"
+	"github.com/Jimon-s/slackhub/tool"
 	"github.com/slack-go/slack"
 )
 
@@ -66,89 +63,5 @@ func getToolList() ([]tool.Tool, error) {
 	// Sort tool list to show slackhub's official tool at bottom.
 	toolList = tool.SortTools(toolList)
 
-	// If dynamodb doesn't have any records, initialize it with register tool.
-	if len(toolList) == 0 {
-
-		toolList, err = initializeToolList()
-		if err != nil {
-			return toolList, err
-		}
-	}
-
 	return toolList, nil
-}
-
-// initializeToolList puts an initial record to DynamoDB.
-func initializeToolList() ([]tool.Tool, error) {
-	var db = dynamo.New(session.New(), &aws.Config{
-		Region: aws.String(region),
-	})
-	var table = db.Table(dynamodb)
-
-	registerTool := tool.Tool{
-		ID:          "register",
-		DisplayName: "SlackHub - Register",
-		Description: "Register is a SlackHub's official tool for registering your new tools.",
-		CalleeArn:   registerArn,
-		ModalJSON:   "SlackHub's official tool Register dinamically creates modal json.",
-		BootMode:    "Normal",
-	}
-
-	editorTool := tool.Tool{
-		ID:          "editor",
-		DisplayName: "SlackHub - Editor",
-		Description: "Editor is a SlackHub's official tool for editing your tools.",
-		CalleeArn:   editorArn,
-		ModalJSON:   "SlackHub's official tool Editor dinamically creates modal json.",
-		BootMode:    "Advanced",
-	}
-
-	catalogTool := tool.Tool{
-		ID:          "catalog",
-		DisplayName: "SlackHub - Catalog",
-		Description: "Catalog is a SlackHub's official tool for listing your tools.",
-		CalleeArn:   catalogArn,
-		ModalJSON:   "SlackHub's official tool Catalog dinamically creates modal json.",
-		BootMode:    "Normal",
-	}
-
-	eraserTool := tool.Tool{
-		ID:          "eraser",
-		DisplayName: "SlackHub - Eraser",
-		Description: "Eraser is a SlackHub's official tool for deleting your tools.",
-		CalleeArn:   eraserArn,
-		ModalJSON:   "SlackHub's official tool Eraser dinamically creates modal json.",
-		BootMode:    "Normal",
-	}
-
-	sampleGoTool := tool.Tool{
-		ID:          "sample_go",
-		DisplayName: "Sample Tool",
-		Description: "Sample tool written in Go. Simply returns user's inputs.",
-		CalleeArn:   sampleGoArn,
-		ModalJSON:   sampleGoJSON,
-		BootMode:    "Normal",
-	}
-
-	if err := table.Put(registerTool).Run(); err != nil {
-		return nil, err
-	}
-
-	if err := table.Put(editorTool).Run(); err != nil {
-		return nil, err
-	}
-
-	if err := table.Put(catalogTool).Run(); err != nil {
-		return nil, err
-	}
-
-	if err := table.Put(eraserTool).Run(); err != nil {
-		return nil, err
-	}
-
-	if err := table.Put(sampleGoTool).Run(); err != nil {
-		return nil, err
-	}
-
-	return []tool.Tool{sampleGoTool, registerTool, editorTool, catalogTool, eraserTool}, nil
 }
